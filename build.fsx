@@ -1,3 +1,5 @@
+open System.Runtime.InteropServices
+
 #r "paket: groupref Build //"
 #load ".fake/build.fsx/intellisense.fsx"
 
@@ -398,6 +400,13 @@ Target.create "RunTest" (fun _ ->
             Logger = Some "console;verbosity=normal"
         }
     DotNet.test options "FSharp.Data.Adaptive.sln"
+
+    
+    Trace.traceImportantfn "MAC:::: %A" RuntimeInformation.OSDescription
+    Trace.traceImportantfn "MAC:::: %A" RuntimeInformation.OSArchitecture
+    Trace.traceImportantfn "MAC:::: %A" RuntimeInformation.FrameworkDescription
+
+
 )
 
 Target.create "Default" ignore
